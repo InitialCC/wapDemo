@@ -14,8 +14,27 @@ Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
   router,
   render: h => h(App),
   store,
 }).$mount("#app");
+// let scrollTop = 0;
+document.addEventListener('DOMContentLoaded', function () {
+  typeof FastClick === 'function' && FastClick.attach(document.body);
+}, false);
+router.beforeEach((route, redirect, next) => {
+  // if (redirect.path === '/') {
+  //   scrollTop = document.getElementById('scrollView').scrollTop;
+  // }
+  document.title = 'wap-' + route.name;
+  next();
+});
+
+// if (route.path === '/') {
+//   Vue.nextTick(() => {
+//       document.getElementById('scrollView').scrollTop = scrollTop;
+//   });
+// } else {
+//   document.getElementById('scrollView').scrollTop = 0;
+// }
+// });

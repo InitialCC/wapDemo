@@ -1,15 +1,14 @@
 <template>
-  <div class="Base">
-    <p>Base</p>
-    <li @click="goPages('/Base/Async')">async</li>
-    <router-view>
-    </router-view>
-  </div>
+  <w-layout class="Base">
+    <ul class="list-ul">
+      <li @click="goPages('/Demo/ShopCart')">ShopCart</li>
+    </ul>
+  </w-layout>
 </template>
 <script>
 export default {
-  name: "base",
-  methods: {}
+  methods: {},
+  components: {}
 };
 </script>
 

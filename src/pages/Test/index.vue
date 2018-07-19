@@ -1,32 +1,39 @@
 <template>
-    <div class="Test">
-        <p>Test</p>
-        <li @click="goPages('/Test/1')">查找数组元素位置</li>
-        <li @click="goPages('/Test/2')">移除数组中的元素</li>
-        <li @click="goPages('/Test/3')">添加数组中的元素</li>
-        <li @click="goPages('/Test/4')"> 删除数组指定位置元素</li>
-        <li @click="goPages('/Test/5')"> 插入指定位置元素</li>
-        <section class="demo-block">
-            <router-view>
-            </router-view>
-        </section>
-    </div>
+  <div class="content">
+    <ul class="list-ul">
+      <li v-for="item in qsList" @click="goPages('/Test/qsContent',item.id)">{{item.title}}</li>
+    </ul>
+  </div>
+
 </template>
 <script>
 export default {
   name: "test",
-  methods: {}
+  methods: {},
+  components: {},
+  data() {
+    return {
+      qsList: []
+    };
+  },
+  mounted() {
+    this.$store.dispatch("getQs").then(res => {
+      console.log(res);
+      this.qsList = res.data.qs;
+    });
+  },
+  watch: {}
 };
 </script>
 <style lang="scss" scoped>
-.demo-block {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  z-index: 10;
-  /* height: 100%; */
-  background: #fff;
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
 }
 </style>
 
