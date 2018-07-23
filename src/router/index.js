@@ -14,8 +14,9 @@ import BaseIndex from '@/pages/Base/index.vue'
 //测试
 import TestIndex from '@/pages/Test/index.vue'
 
-import qsContent from '@/pages/Test/qsContent.vue';
+import qsContent from '@/pages/Test/content.vue';
 
+import demoContent from '@/pages/Demo/content.vue';
 //
 
 
@@ -29,12 +30,26 @@ export default new Router({
     children: [{
       path: '/Test',
       name: "test",
-      component: TestIndex
+      component: TestIndex,
+      children: [
+        {
+          path: 'content',
+          component: qsContent,
+          name: "qsContent",
+        }
+      ]
     },
     {
       path: '/Demo',
       name: 'demo',
-      component: DemoIndex
+      component: DemoIndex,
+      children: [
+        {
+          path: '/Demo/content',
+          component: demoContent,
+          name: "demoContent",
+        }
+      ]
     },
     {
       path: '/Base',
@@ -48,11 +63,16 @@ export default new Router({
     }
     ]
   },
-  {
-    path: '/Test/qsContent',
-    component: qsContent,
-    name: "qsContent",
-  }
+    // {
+    //   path: '/Test/content',
+    //   component: qsContent,
+    //   name: "qsContent",
+    // },
+    // {
+    //   path: '/Demo/content',
+    //   component: demoContent,
+    //   name: "demoContent",
+    // }
 
 
   ]

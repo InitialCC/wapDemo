@@ -4,11 +4,16 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from "./store";
+import FastClick from 'fastclick'
+FastClick.attach(document.body)
 import "/script/flexible.js"
 import Highlight from '/script/highLight.js'
 Vue.use(Highlight)
 import base from '/script/base.js'
+import vConsole from 'vconsole'
+
 Vue.use(base);
+
 
 Vue.config.productionTip = false
 

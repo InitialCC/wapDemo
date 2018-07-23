@@ -7,11 +7,11 @@ const mutations = {
 
 }
 const actions = {
-  getQs({ commit }, data) {
+  getJson({ commit }, data) {
     return new Promise((resolve, rejects) => {
-      API.getQs(data).then(
+      API.getJson(data).then(
         res => {
-          resolve(res);
+          resolve(res.data);
         },
         error => {
           reject(error);

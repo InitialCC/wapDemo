@@ -1,9 +1,7 @@
 <template>
   <div id="app">
-
     <transition :name="transitionName" class="main-router">
-      <router-view class="111">
-
+      <router-view>
       </router-view>
     </transition>
   </div>
@@ -29,6 +27,7 @@ export default {
       const toDepth = to.path.split("/").length;
       const fromDepth = from.path.split("/").length;
       this.transitionName = toDepth < fromDepth ? "slide-right" : "slide-left";
+      // console.log(this.transitionName);
     }
   }
 };
@@ -37,6 +36,10 @@ export default {
  <style lang="scss">
 @import "/assets/styles/reset.scss";
 @import "/assets/styles/main.scss";
-body {
+.fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 </style>

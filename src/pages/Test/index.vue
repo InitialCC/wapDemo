@@ -1,28 +1,44 @@
 <template>
   <div class="content">
     <ul class="list-ul">
-      <li v-for="item in qsList" @click="goPages('/Test/qsContent',item.id)">{{item.title}}</li>
+      <li v-for="item in qsList" @click="goPages('/Test/content',item.id)">{{item.title}}</li>
     </ul>
+    <transition :name="transitionName">
+      <router-view class="page">
+      </router-view>
+    </transition>
   </div>
 
 </template>
 <script>
+// import { getters, mapActions, mapGetters } from "vuex";
 export default {
   name: "test",
   methods: {},
   components: {},
   data() {
     return {
-      qsList: []
+      qsList: [],
+      transitionName: ""
     };
   },
+  methods: {
+    // ...mapActions(["getTrans"])
+  },
   mounted() {
-    this.$store.dispatch("getQs").then(res => {
-      console.log(res);
-      this.qsList = res.data.qs;
+    console.log(this.transitionName);
+    this.$store.dispatch("getJson").then(res => {
+      this.qsList = res.qs;
     });
   },
-  watch: {}
+  computed: {
+    // ...mapGetters(["transitionName"])
+  },
+  watch: {
+    $route(to, from) {
+      this.transitionName = this.getRouter(to, from);
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>

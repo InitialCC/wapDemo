@@ -1,9 +1,10 @@
 import axios from "axios";
 import qs from "qs";
 
-const baseUrl = "http://localhost:8080/";
+// const baseUrl = "http://192.168.0.101:8000/";
+const baseUrl = "http://127.0.0.1:8000/";
 const other = {
-  getQs: "static/data.json"
+  getJson: "static/data.json"
 }
 // var getObj = function (params) {
 //     let secret_code = "pER3xj8ZhYDCAkCgCBLQHXPTFPwCKmXs";
@@ -42,6 +43,6 @@ function apiPost(url, data = {}) {
 }
 
 export default {
-  getQs: data => apiGet(other.getQs, data), // 测试GET接口
+  getJson: data => apiGet(other.getJson, data), // 测试GET接口
 }
 // getMaterialsById: (data, id) => apiGet(Books.Materials, data, id),

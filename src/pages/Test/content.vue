@@ -1,5 +1,5 @@
 <template>
-  <w-layout title="test">
+  <w-layout :title="qs_title">
     <h1>题目描述</h1>
     <div v-for="(item,index) in qsList" v-if="index+1==$route.query.id">
       <p>{{item.dre}}</p>
@@ -14,8 +14,8 @@
       <p>{{item.res}}</p>
       <p>{{outVal($route.query.id,item)}}</p>
     </div>
-
   </w-layout>
+
 </template>
 <script>
 import codeBlock from "/components/codeBlock";
@@ -26,7 +26,8 @@ export default {
   },
   data() {
     return {
-      qsList: []
+      qsList: [],
+      qs_title: ""
     };
   },
   methods: {
@@ -188,9 +189,17 @@ export default {
     // this.outVal2 = this._repeat2(this.inputVal2);
   },
   mounted() {
-    this.$store.dispatch("getQs").then(res => {
-      this.qsList = res.data.qs;
+    this.$store.dispatch("getJson").then(res => {
+      this.qsList = res.qs;
+      this.qs_title = res.qs[this.$route.query.id - 1].title;
     });
+  },
+  computed: {
+    // filtersData() {
+    //   return this.qsList.filter(item => {
+    //     return item.id == this.$route.query.id;
+    //   });
+    // }
   }
 };
 </script>
@@ -200,18 +209,23 @@ h1 {
   padding: 10px 0;
   margin-bottom: 0;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 16px; /*no*/
 }
 h2 {
-  font-size: 14px;
+  font-size: 14px; /*no*/
   font-weight: bold;
   color: #34495e;
 }
 p {
   margin-bottom: 10px;
-  font-size: 14px;
+  font-size: 18px; /*no*/
   line-height: 1.8;
   color: #5a676f;
+}
+
+.view {
+  transition: all 0.3s;
+  transform: translateZ(0);
 }
 
 code,

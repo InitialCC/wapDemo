@@ -1,21 +1,12 @@
 <template>
   <div class="main">
-    <ul class="fixed foot-navbar">
-      <li @click="goPages('/Demo')">
-        <span>Demo</span>
-      </li>
-      <li @click="goPages('/Base')">
-        <span>Base</span>
-      </li>
-      <li @click="goPages('/Test')">
-        <span>Test</span>
-      </li>
-    </ul>
-    <transition class="main-router">
+    <w-footer :items="footItem" @onSelect="onSel" :seleted="footSel"></w-footer>
+    <router-view>
+    </router-view>
+    <!-- <transition>
       <router-view>
       </router-view>
-    </transition>
-
+    </transition> -->
   </div>
 </template>
 
@@ -23,11 +14,29 @@
 export default {
   data() {
     return {
-      transitionName: ""
+      transitionName: "",
+      footSel: 0,
+      footItem: [
+        {
+          title: "Demo",
+          path: "Demo"
+        },
+        {
+          title: "Base",
+          path: "Base"
+        },
+        {
+          title: "Test",
+          path: "Test"
+        }
+      ]
     };
   },
 
   methods: {
+    onSel(val) {
+      console.log(val);
+    }
     // goPages(url) {
     //   this.$router.push(url);
     // }
@@ -42,51 +51,6 @@ export default {
 // 在px后面添加/*no*/，不会转化px，会原样输出。 --- 一般border需用这个
 // 在px后面添加/*px*/,会根据dpr的不同，生成三套代码。---- 一般字体需用这个
 
-.demo-block {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  transition: all 0.8s ease;
-
-  background: #fff;
-
-  height: 100%;
-  z-index: 999;
-}
-
-.list-ul {
-  > li {
-    padding: 10px;
-    background: #fff;
-  }
-}
-
-.fixed {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  font-size: 18px;
-}
-.foot-navbar {
-  display: flex;
-  background: #fff;
-  li {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 1.2rem;
-
-    > span {
-      padding: 0 0.26rem;
-      font-size: 14px;
-    }
-  }
-}
 .router {
   transition: all 0.8s ease;
 }
@@ -101,18 +65,33 @@ export default {
   width: 100%;
   left: 0;
 }
-.slide-right-enter {
-  transform: translateX(-100%);
-}
-.slide-right-leave-active {
-  transform: translateX(100%);
-}
 .slide-left-enter {
   transform: translateX(100%);
 }
 .slide-left-leave-active {
-  transform: translateX(-100%);
+  transform: translateX(100%);
 }
+.slide-right-enter {
+  transform: translateX(100%);
+}
+.slide-right-leave-active {
+  transform: translateX(100%);
+}
+.page {
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #efeff4;
+}
+// .slide-left-enter {
+//   transform: translateX(100%);
+// }
+// .slide-left-leave-active {
+//   transform: translateX(-100%);
+// }
 </style>
 
 
