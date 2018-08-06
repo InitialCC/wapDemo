@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed">
+  <div class="footer">
     <ul class="foot-navbar">
       <li v-for="(item,index) in items" @click="changeSelect(item,index)" :class="{_selected:index == active}">
         <span>{{item.title}}</span>
@@ -52,7 +52,7 @@ export default {
   },
   mounted() {
     this.active = this.seleted;
-    this.goPages("/" + this.items[this.active].path);
+    // this.goPages("/" + this.items[this.active].path);
   }
 };
 </script>
@@ -79,5 +79,12 @@ export default {
       font-size: 18px; /*no*/
     }
   }
+}
+.footer {
+  position: absolute;
+
+  bottom: 0;
+  z-index: 90;
+  width: 100%;
 }
 </style>

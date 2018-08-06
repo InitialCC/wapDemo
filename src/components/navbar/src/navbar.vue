@@ -31,14 +31,15 @@ export default {
       default: ".4rem"
     },
     height: {
-      default: "1rem"
+      default: "1.5rem"
     }
   },
   computed: {
     classes() {
       return this.fixed ? "w-navbar-fixed" : "";
     }
-  }
+  },
+  created() {}
 };
 </script>
 
@@ -48,6 +49,7 @@ export default {
   position: relative;
   display: flex;
   border-bottom: 1px solid #ddd;
+  padding: 0 20px;
   .w-navbar-item {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 25%;

@@ -1,12 +1,15 @@
 
 const state = {
-    transitionName: ""
+    transitionName: "",
+    direction: "forward"
 }
 const types = {
     GET_TRANS: "GET_TRANS"
 }
 const mutations = {
-
+    UPDATE_DIRECTION(state, direction) {
+        state.direction = direction
+    }
 }
 const actions = {
     //ES5参数解构 
@@ -17,7 +20,8 @@ const actions = {
     // }
 }
 const getters = {
-    transitionName: state => state.transitionName
+    transitionName: state => state.transitionName,
+    direction: state => state.direction
 }
 export default {
     state,

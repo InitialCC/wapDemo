@@ -1,1 +1,58 @@
 @import "_them.scss";
+@import "_mixin.scss";
+body {
+  // background: linear-gradient(-20deg, #d0b782 20%, #a0cecf 80%);
+}
+.fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  .main {
+ 
+  }
+  .list-ul {
+   
+    // margin: 0 auto;
+    // border-top: 5px solid #435757;
+    // background-color: rgba(255, 255, 255, .2);
+    // box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+ 
+    // user-select: none;
+    >li {
+      // border-color: #07c;
+      // box-shadow: inset 0 1px 0 0 rgba(102,191,255,0.75), 0 0 0 0 rgba(0,149,255,0);
+      // color: #FFF;
+    }
+  }
+  .list-group-item {
+    position: relative;
+    display: block;
+    padding: 30px 40px;
+    margin-bottom: -1px;/*no*/ 
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.125);/*no*/ 
+    &:first-child {
+      border-top-left-radius:  4px;/*no*/ 
+      border-top-right-radius: 4px;/*no*/ 
+    }
+    &:last-child {
+      border-bottom-right-radius: 4px;/*no*/ 
+      border-bottom-left-radius:4px;/*no*/ 
+  }
+    
+  }
+.word-deal {
+  text-overflow:ellipsis;//表示文本超出用省略号代替
+white-space:nowrap;//表示文本不换行；
+overflow:hidden;//表示超出隐藏；
+}
+#app {
+  // display: block;
+  // position: relative;
+  // top: 0;
+  // left: 0;
+  // width: 100%;
+  // height: 100%;
+}

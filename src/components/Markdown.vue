@@ -5,7 +5,7 @@
 </template>
 <script>
 import marked from "marked";
-import hljs from "highlight.js";
+// import hljs from "highlight.js";
 export default {
   name: "makedown",
   props: {
@@ -16,14 +16,14 @@ export default {
   },
   created() {
     marked.setOptions({
-      gfm: true,
-      tables: true,
-      breaks: false,
-      pedantic: false,
-      sanitize: true,
-      smartLists: true,
-      smartypants: false,
-      highlight: code => hljs.highlightAuto(code).value
+      // gfm: true,
+      // tables: true,
+      // breaks: false,
+      // pedantic: false,
+      // sanitize: true,
+      // smartLists: true,
+      // smartypants: false,
+      // highlight: code => hljs.highlightAuto(code).value
     });
   },
   methods: {

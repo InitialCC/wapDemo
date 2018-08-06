@@ -1,14 +1,13 @@
 <template>
   <div class="content">
     <ul class="list-ul">
-      <li v-for="item in qsList" @click="goPages('/Test/content',item.id)">{{item.title}}</li>
+      <li class="list-group-item" v-for="item in qsList" @click="goPages('/Test/content',item.id)">{{item.title}}</li>
     </ul>
     <transition :name="transitionName">
-      <router-view class="page">
+      <router-view>
       </router-view>
     </transition>
   </div>
-
 </template>
 <script>
 // import { getters, mapActions, mapGetters } from "vuex";
@@ -42,15 +41,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: all 0.5s ease;
-}
-
-.fade-enter,
-.fade-leave-active {
-  opacity: 0;
-}
 </style>
 
 

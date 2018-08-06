@@ -1,8 +1,12 @@
 import axios from "axios";
+// axios.defaults.baseURL = 'https://api.example.com';
+// axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
 import qs from "qs";
 
-// const baseUrl = "http://192.168.0.101:8000/";
-const baseUrl = "http://127.0.0.1:8000/";
+const baseUrl = "http://192.168.0.100:8000/";
+// const baseUrl = "http://127.0.0.1:8000/";
 const other = {
   getJson: "static/data.json"
 }
@@ -18,6 +22,7 @@ const other = {
 //     params.timestamp = timestamp;
 //     return params;
 //   };
+
 function apiGet(url, data = {}, id) {
   if (id !== "" && typeof id !== "undefined") {
     return axios.get(

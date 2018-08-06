@@ -1,9 +1,9 @@
 <template>
-  <w-layout class="Base">
+  <div class="Base">
     <ul class="list-ul">
       <li @click="goPages('/Demo/ShopCart')">ShopCart</li>
     </ul>
-  </w-layout>
+  </div>
 </template>
 <script>
 export default {

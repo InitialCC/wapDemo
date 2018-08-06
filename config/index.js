@@ -8,8 +8,8 @@ module.exports = {
   dev: {
 
     // Paths
-    assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsSubDirectory: 'static',//编译输出的二级目录
+    assetsPublicPath: '/',//编译发布的根目录，可配置为资源服务器域名或 CDN 域名
     proxyTable: {},
 
     // Various Dev Server settings

@@ -1,19 +1,26 @@
 <template>
   <div class="mf-loading-container">
-    <img src="./load.gif">
+    <img :src="loadImg">
   </div>
 </template>
-<script type="text/ecmascript-6">
+<script>
+import LoadGif from "/assets/load.gif";
+
 const COMPONENT_NAME = "loading";
 export default {
-  name: COMPONENT_NAME
+  name: COMPONENT_NAME,
+  data() {
+    return {
+      loadImg: LoadGif
+    };
+  }
 };
 </script>
 <style lang="scss">
 .mf-loading-container {
   img {
-    width: 20px;
-    height: 20px;
+    width: 100px;
+    height: 100px;
     display: block;
   }
 }
